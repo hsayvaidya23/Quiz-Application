@@ -1,9 +1,10 @@
 import React from 'react';
 import "../App.css";
+import { Questions } from "../helpers/Questions";
 
 const Quiz = () => {
   return (
-    <div>Quiz</div>
+    <div className='Quiz'></div>
   )
 }
 

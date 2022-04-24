@@ -1,11 +1,50 @@
-import React from 'react';
+import React, { useState } from "react";
 import "../App.css";
 import { Questions } from "../helpers/Questions";
 
 const Quiz = () => {
-  return (
-    <div className='Quiz'></div>
-  )
-}
+  const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [optionChosen, setOptionChosen] = useState("");
 
-export default Quiz
+  const chooseOption = (option) => {
+    setOptionChosen(option);
+  };
+  return (
+    <div className="Quiz">
+      <h1>{Questions[currentQuestion].prompt}</h1>
+      <div className="questions">
+        <button
+          onClick={() => {
+            chooseOption("optionA");
+          }}
+        >
+          {Questions[currentQuestion].optionA}{" "}
+        </button>
+        <button
+          onClick={() => {
+            chooseOption("optionB");
+          }}
+        >
+          {Questions[currentQuestion].optionB}{" "}
+        </button>
+        <button
+          onClick={() => {
+            chooseOption("optionC");
+          }}
+        >
+          {Questions[currentQuestion].optionC}{" "}
+        </button>
+        <button
+          onClick={() => {
+            chooseOption("optionD");
+          }}
+        >
+          {Questions[currentQuestion].optionD}{" "}
+        </button>
+      </div>
+      {optionChosen}
+    </div>
+  );
+};
+
+export default Quiz;

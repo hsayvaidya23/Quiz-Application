@@ -1,10 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "../App.css";
 import { Questions } from "../helpers/Questions";
+import { GameStateContext } from "../helpers/Contexts";
+
 
 const Quiz = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [optionChosen, setOptionChosen] = useState("");
+
+  const { score, setScore } = useContext(GameStateContext);
 
   const chooseOption = (option) => {
     setOptionChosen(option);
@@ -12,11 +16,8 @@ const Quiz = () => {
 
   const nextQuestion = () => {
     if(Questions[currentQuestion].answer == optionChosen) {
-        console.log("correct");
-    } else {
-        console.log("incorrect");
-    }
-
+        setScore(score + 50);
+    } 
     setCurrentQuestion(currentQuestion+ 1);
   };
 

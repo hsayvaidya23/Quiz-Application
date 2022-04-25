@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
-import './App.css';
-import Menu from './components/Menu';
-import Quiz from './components/Quiz';
-import { GameStateContext } from './helpers/Contexts';
+import React, { useState } from "react";
+import "./App.css";
+import Menu from "./components/Menu";
+import Quiz from "./components/Quiz";
+import EndScreen from "./components/EndScreen";
+import { GameStateContext } from "./helpers/Contexts";
 
 //* [ 'menu', 'playing', 'finished']
 function App() {
@@ -13,13 +14,21 @@ function App() {
   return (
     <div className="App">
       <h1>QuizApp</h1>
-      <GameStateContext.Provider value={{ gameState, setGameState, userName, setUserName, score, setScore }}>
-        {gameState === "menu" && <Menu /> }
+      <GameStateContext.Provider
+        value={{
+          gameState,
+          setGameState,
+          userName,
+          setUserName,
+          score,
+          setScore,
+        }}
+      >
+        {gameState === "menu" && <Menu />}
         {gameState === "playing" && <Quiz />}
+        {gameState === "finished" && <EndScreen />}
       </GameStateContext.Provider>
-      
-      
-    </div> 
+    </div>
   );
 }
 

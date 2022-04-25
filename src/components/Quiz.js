@@ -16,12 +16,15 @@ const Quiz = () => {
 
   const nextQuestion = () => {
     if (Questions[currentQuestion].answer == optionChosen) {
-      setScore(score + 50);
+      setScore(score + 1);
     }
     setCurrentQuestion(currentQuestion + 1);
   };
 
   const finishQuiz = () => {
+    if (Questions[currentQuestion].answer == optionChosen) {
+      setScore(score + 1);
+    }
     setGameState('finished');
   };
 
@@ -59,10 +62,10 @@ const Quiz = () => {
         </button>
       </div>
       {currentQuestion == Questions.length - 1 ? (
-        <button onClick={finishQuiz}>Finish Quiz</button>
+        <button onClick={finishQuiz} id="nextQuestion">Finish Quiz</button>
       ) : (
-        <button onClick={nextQuestion}>Next Question</button>
-      )};
+        <button onClick={nextQuestion} id="nextQuestion" >Next Question</button>
+      )}
     </div>
   );
 };

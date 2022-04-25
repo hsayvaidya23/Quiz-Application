@@ -57,3 +57,11 @@ button:hover {
   justify-content: center;
   align-items: center;
 }
+
+#nextQuestion {
+  width: 200px;
+}
+
+h2 {
+  color:white;
+}

@@ -9,6 +9,17 @@ const Quiz = () => {
   const chooseOption = (option) => {
     setOptionChosen(option);
   };
+
+  const nextQuestion = () => {
+    if(Questions[currentQuestion].answer == optionChosen) {
+        console.log("correct");
+    } else {
+        console.log("incorrect");
+    }
+
+    setCurrentQuestion(currentQuestion+ 1);
+  };
+
   return (
     <div className="Quiz">
       <h1>{Questions[currentQuestion].prompt}</h1>
@@ -42,7 +53,7 @@ const Quiz = () => {
           {Questions[currentQuestion].optionD}{" "}
         </button>
       </div>
-      {optionChosen}
+      <button onClick={nextQuestion}>Next Question</button>
     </div>
   );
 };

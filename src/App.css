@@ -43,4 +43,7 @@ button:hover {
   align-items: center;
 }
 
+.Menu, .Quiz h1 {
+  color:white;
+}
 
